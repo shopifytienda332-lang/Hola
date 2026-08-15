@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Datos de Facturación EE. UU. (Miami)</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+</head>
+<body class="bg-gray-950 text-gray-100 font-sans min-h-screen p-4 md:p-8">
+
+    <div class="max-w-2xl mx-auto space-y-6">
+        
+        <!-- Encabezado -->
+        <header class="text-center space-y-2">
+            <div class="inline-flex items-center justify-center p-3 bg-blue-600/20 text-blue-400 rounded-2xl mb-1">
+                <i class="fa-solid fa-map-location-dot text-3xl"></i>
+            </div>
+            <h1 class="text-2xl md:text-3xl font-bold">Datos de Facturación para EE. UU.</h1>
+            <p class="text-gray-400 text-sm">
+                Copia cada dato con un toque y pégalo directamente en la App Store.
+            </p>
+        </header>
+
+        <!-- Botón de apertura de App Store -->
+        <div class="bg-blue-900/20 border border-blue-700/50 rounded-2xl p-4 text-center space-y-3">
+            <p class="text-xs text-gray-300">Toca para abrir la configuración de cuenta en tu iPhone:</p>
+            <a href="itms-apps://apps.apple.com/account/billing" target="_blank" class="inline-flex items-center justify-center gap-2 px-6 py-3 bg-blue-600 hover:bg-blue-500 text-white font-medium text-sm rounded-xl transition shadow-lg w-full sm:w-auto">
+                <i class="fa-brands fa-apple"></i>
+                Abrir Configuración de Cuenta
+            </a>
+        </div>
+
+        <!-- Tarjetas de datos para copiar -->
+        <div class="bg-gray-900 rounded-2xl p-5 border border-gray-800 space-y-4">
+            <h2 class="text-sm font-semibold uppercase tracking-wider text-amber-400 flex items-center justify-between">
+                <span>Dirección de Facturación (Miami, FL)</span>
+                <i class="fa-solid fa-copy"></i>
+            </h2>
+
+            <div class="space-y-3 font-mono text-xs md:text-sm">
+                
+                <!-- Calle -->
+                <div class="bg-gray-950 p-3 rounded-xl border border-gray-800 flex items-center justify-between gap-3">
+                    <div class="overflow-hidden">
+                        <span class="text-gray-500 text-[10px] uppercase font-sans block">Calle / Street</span>
+                        <span class="text-gray-100 font-semibold truncate block">8342 NW 66TH STREET</span>
+                    </div>
+                    <button onclick="copiar('8342 NW 66TH STREET')" class="px-3 py-1.5 bg-blue-600/20 hover:bg-blue-600/30 text-blue-400 rounded-lg text-xs font-sans transition shrink-0">
+                        Copiar
+                    </button>
+                </div>
+
+                <!-- Número -->
+                <div class="bg-gray-950 p-3 rounded-xl border border-gray-800 flex items-center justify-between gap-3">
+                    <div>
+                        <span class="text-gray-500 text-[10px] uppercase font-sans block">Número</span>
+                        <span class="text-gray-400 font-semibold italic">Dejar en blanco (Opcional)</span>
+                    </div>
+                </div>
+
+                <!-- Ciudad -->
+                <div class="bg-gray-950 p-3 rounded-xl border border-gray-800 flex items-center justify-between gap-3">
+                    <div>
+                        <span class="text-gray-500 text-[10px] uppercase font-sans block">Ciudad / City</span>
+                        <span class="text-gray-100 font-semibold block">Miami</span>
+                    </div>
+                    <button onclick="copiar('Miami')" class="px-3 py-1.5 bg-blue-600/20 hover:bg-blue-600/30 text-blue-400 rounded-lg text-xs font-sans transition shrink-0">
+                        Copiar
+                    </button>
+                </div>
+
+                <!-- Estado -->
+                <div class="bg-gray-950 p-3 rounded-xl border border-gray-800 flex items-center justify-between gap-3">
+                    <div>
+                        <span class="text-gray-500 text-[10px] uppercase font-sans block">Estado / State</span>
+                        <span class="text-gray-100 font-semibold block">Florida</span>
+                    </div>
+                    <button onclick="copiar('Florida')" class="px-3 py-1.5 bg-blue-600/20 hover:bg-blue-600/30 text-blue-400 rounded-lg text-xs font-sans transition shrink-0">
+                        Copiar
+                    </button>
+                </div>
+
+                <!-- Código Postal -->
+                <div class="bg-gray-950 p-3 rounded-xl border border-gray-800 flex items-center justify-between gap-3">
+                    <div>
+                        <span class="text-gray-500 text-[10px] uppercase font-sans block">Código Postal / Zip Code</span>
+                        <span class="text-gray-100 font-semibold block">33266</span>
+                    </div>
+                    <button onclick="copiar('33266')" class="px-3 py-1.5 bg-blue-600/20 hover:bg-blue-600/30 text-blue-400 rounded-lg text-xs font-sans transition shrink-0">
+                        Copiar
+                    </button>
+                </div>
+
+                <!-- Teléfono -->
+                <div class="bg-gray-950 p-3 rounded-xl border border-gray-800 flex items-center justify-between gap-3">
+                    <div>
+                        <span class="text-gray-500 text-[10px] uppercase font-sans block">Teléfono / Phone</span>
+                        <span class="text-gray-300 text-xs font-sans block">Puedes poner tu propio número telefónico</span>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+
+        <!-- Pasos rápidos -->
+        <div class="bg-gray-900 rounded-2xl p-5 border border-gray-800 space-y-2 text-xs text-gray-300">
+            <p class="font-bold text-white mb-2">Pasos para aplicar la dirección:</p>
+            <p>1. Entra a la App Store y ve a <strong>País o región</strong> &gt; <strong>Cambiar de país o región</strong>.</p>
+            <p>2. Elige <strong>Estados Unidos</strong> y acepta los Términos.</p>
+            <p>3. En forma de pago, marca <strong>Ninguna</strong> (None).</p>
+            <p>4. Pega estos datos en la sección <strong>Dirección de facturación</strong> y presiona <strong>Aceptar / Listo</strong>.</p>
+        </div>
+
+    </div>
+
+    <!-- Toast de Notificación -->
+    <div id="toast" class="fixed bottom-5 left-1/2 -translate-x-1/2 bg-emerald-600 text-white px-4 py-2 rounded-xl text-xs font-medium shadow-xl opacity-0 transition-opacity duration-300 pointer-events-none">
+        ¡Copiado al portapapeles!
+    </div>
+
+    <script>
+        function copiar(texto) {
+            const el = document.createElement('textarea');
+            el.value = texto;
+            document.body.appendChild(el);
+            el.select();
+            document.execCommand('copy');
+            document.body.removeChild(el);
+
+            const toast = document.getElementById('toast');
+            toast.classList.remove('opacity-0');
+            setTimeout(() => {
+                toast.classList.add('opacity-0');
+            }, 2000);
+        }
+    </script>
+</body>
+</html>
+
