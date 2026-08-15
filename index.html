@@ -3,149 +3,144 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Asistente Cambio de Región iOS - EE. UU.</title>
+    <title>Asistente de Formulario - Agregar Pago</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
     <style>
-        .step-active {
-            border-color: #3b82f6;
-            background-color: rgba(59, 130, 246, 0.1);
+        .ios-screen {
+            background-color: #000000;
+            border-radius: 28px;
+            border: 1px solid #27272a;
+        }
+        .ios-card {
+            background-color: #1c1c1e;
+            border-radius: 12px;
+        }
+        .ios-divider {
+            border-bottom: 0.5px solid #3a3a3c;
         }
     </style>
 </head>
-<body class="bg-gray-950 text-gray-100 font-sans min-h-screen p-4 md:p-8 flex items-center justify-center">
+<body class="bg-gray-950 text-gray-100 font-sans min-h-screen p-3 md:p-6 flex items-center justify-center">
 
-    <div class="max-w-xl w-full bg-gray-900 rounded-3xl border border-gray-800 p-6 md:p-8 space-y-6 shadow-2xl">
+    <div class="max-w-md w-full bg-gray-900 rounded-3xl border border-gray-800 p-4 md:p-6 space-y-5 shadow-2xl">
         
         <!-- Header -->
-        <header class="text-center space-y-2">
-            <div class="inline-flex items-center justify-center w-14 h-14 bg-blue-600/20 text-blue-400 rounded-2xl mb-1">
-                <i class="fa-solid fa-flag-usa text-2xl"></i>
-            </div>
-            <h1 class="text-2xl font-bold tracking-tight">Configuración de Región a EE. UU.</h1>
-            <p class="text-xs text-gray-400">Sigue los 3 pasos interactivos para completar la configuración</p>
+        <header class="text-center space-y-1">
+            <h1 class="text-xl font-bold tracking-tight">Asistente de Registro iOS</h1>
+            <p class="text-xs text-gray-400">Paso a paso para configurar tu cuenta</p>
         </header>
 
-        <!-- Indicador de Pasos -->
+        <!-- Pestañas de Pasos -->
         <div class="grid grid-cols-3 gap-2 text-center text-xs font-semibold">
-            <div id="badge-1" class="py-2 rounded-xl bg-blue-600 text-white transition-all">Paso 1</div>
-            <div id="badge-2" class="py-2 rounded-xl bg-gray-800 text-gray-400 transition-all">Paso 2</div>
-            <div id="badge-3" class="py-2 rounded-xl bg-gray-800 text-gray-400 transition-all">Paso 3</div>
+            <button onclick="changeStep(1)" id="tab-1" class="py-2 rounded-xl bg-blue-600 text-white transition-all">Paso 1</button>
+            <button onclick="changeStep(2)" id="tab-2" class="py-2 rounded-xl bg-gray-800 text-gray-400 transition-all">Paso 2</button>
+            <button onclick="changeStep(3)" id="tab-3" class="py-2 rounded-xl bg-gray-800 text-gray-400 transition-all">Paso 3</button>
         </div>
 
-        <!-- PASO 1 -->
+        <!-- PASO 1: Inicio -->
         <div id="step-1" class="space-y-4">
-            <div class="bg-gray-950 p-4 rounded-2xl border border-gray-800 space-y-3">
-                <div class="flex items-center gap-3">
-                    <span class="w-8 h-8 rounded-full bg-blue-600/20 text-blue-400 flex items-center justify-center font-bold text-sm">1</span>
-                    <h2 class="font-semibold text-sm">Iniciar Proceso desde la App</h2>
+            <div class="bg-gray-950 p-5 rounded-2xl border border-gray-800 space-y-3 text-center">
+                <div class="w-12 h-12 bg-blue-600/20 text-blue-400 rounded-full flex items-center justify-center mx-auto text-xl font-bold">
+                    1
                 </div>
-                <p class="text-xs text-gray-400 pl-11">
-                    Bienvenido. En el siguiente paso se abrirá el apartado de cuenta de tu App Store.
+                <h2 class="font-bold text-base">Entrar a la Aplicación</h2>
+                <p class="text-xs text-gray-400 leading-relaxed">
+                    Al presionar el botón, serás guiado a la sección de pago y dirección de facturación para tu Apple ID.
                 </p>
             </div>
 
-            <button onclick="goToStep(2)" class="w-full py-3.5 bg-blue-600 hover:bg-blue-500 text-white font-semibold rounded-2xl transition flex items-center justify-center gap-2 text-sm shadow-lg shadow-blue-600/20">
-                <span>Continuar al Paso 2</span>
+            <button onclick="changeStep(2)" class="w-full py-3.5 bg-blue-600 hover:bg-blue-500 text-white font-semibold rounded-2xl transition flex items-center justify-center gap-2 text-sm shadow-lg shadow-blue-600/20">
+                <span>Ir al Paso 2 (Abrir Formulario)</span>
                 <i class="fa-solid fa-arrow-right text-xs"></i>
             </button>
         </div>
 
-        <!-- PASO 2 -->
+        <!-- PASO 2: Formulario Vacío / Enlace -->
         <div id="step-2" class="hidden space-y-4">
-            <div class="bg-gray-950 p-4 rounded-2xl border border-gray-800 space-y-3">
-                <div class="flex items-center gap-3">
-                    <span class="w-8 h-8 rounded-full bg-blue-600/20 text-blue-400 flex items-center justify-center font-bold text-sm">2</span>
-                    <h2 class="font-semibold text-sm">Entrar a Regiones y Seleccionar Estados Unidos</h2>
+            <div class="ios-screen p-4 space-y-3">
+                <div class="flex justify-between items-center text-xs text-blue-400 pb-2 border-b border-gray-800">
+                    <span>Cancelar</span>
+                    <span class="font-bold text-white text-sm">Agregar pago</span>
+                    <span>Listo</span>
                 </div>
+
+                <div class="text-[10px] text-gray-400 uppercase tracking-wider px-2 pt-1">Forma de pago</div>
                 
-                <p class="text-xs text-gray-400 pl-11">
-                    Haz clic en el botón inferior para abrir la App Store. Luego pulsa en <strong>País o región &gt; Estados Unidos</strong> y acepta los términos manualmente.
-                </p>
+                <div class="ios-card overflow-hidden text-xs">
+                    <div class="p-3 flex justify-between items-center ios-divider">
+                        <span class="text-gray-300">Tarjeta de crédito o débito</span>
+                        <i class="fa-solid fa-check text-blue-500"></i>
+                    </div>
+                    <div class="p-3 text-gray-400 ios-divider">PayPal</div>
+                    <div class="p-3 text-gray-400 ios-divider">Teléfono móvil</div>
+                    <div class="p-3 text-gray-400">Ninguno</div>
+                </div>
 
-                <div class="pl-11 pt-2">
-                    <a href="itms-apps://apps.apple.com/account/billing" target="_blank" onclick="markAppStoreOpened()" class="inline-flex items-center justify-center gap-2 px-5 py-2.5 bg-emerald-600 hover:bg-emerald-500 text-white text-xs font-semibold rounded-xl transition">
-                        <i class="fa-brands fa-apple text-base"></i>
-                        Abrir App Store (Región)
-                    </a>
+                <div class="text-[10px] text-gray-400 uppercase tracking-wider px-2 pt-1">Dirección de facturación</div>
+                <div class="ios-card p-3 text-xs space-y-2 text-gray-500">
+                    <div class="flex justify-between"><span>Calle</span> <span>Obligatorio</span></div>
+                    <div class="flex justify-between"><span>Ciudad</span> <span>Obligatorio</span></div>
+                    <div class="flex justify-between"><span>Estado / Provincia</span> <span>Seleccionar</span></div>
+                    <div class="flex justify-between"><span>Código postal</span> <span>Obligatorio</span></div>
                 </div>
             </div>
 
-            <div class="flex gap-3">
-                <button onclick="goToStep(1)" class="w-1/3 py-3.5 bg-gray-800 hover:bg-gray-700 text-gray-300 font-semibold rounded-2xl transition text-xs">
-                    Anterior
-                </button>
-                <button onclick="goToStep(3)" class="w-2/3 py-3.5 bg-blue-600 hover:bg-blue-500 text-white font-semibold rounded-2xl transition flex items-center justify-center gap-2 text-sm shadow-lg shadow-blue-600/20">
-                    <span>Ir al Paso 3 (Rellenar Datos)</span>
-                    <i class="fa-solid fa-arrow-right text-xs"></i>
-                </button>
-            </div>
+            <a href="itms-apps://apps.apple.com/account/billing" target="_blank" onclick="changeStep(3)" class="w-full py-3.5 bg-emerald-600 hover:bg-emerald-500 text-white font-semibold rounded-2xl transition flex items-center justify-center gap-2 text-sm shadow-lg shadow-emerald-600/20">
+                <i class="fa-brands fa-apple text-base"></i>
+                <span>Abrir este Formulario en App Store</span>
+            </a>
         </div>
 
-        <!-- PASO 3 -->
+        <!-- PASO 3: Formulario Lleno y Botón de Copia -->
         <div id="step-3" class="hidden space-y-4">
-            <div class="bg-gray-950 p-4 rounded-2xl border border-gray-800 space-y-4">
-                <div class="flex items-center gap-3">
-                    <span class="w-8 h-8 rounded-full bg-blue-600/20 text-blue-400 flex items-center justify-center font-bold text-sm">3</span>
-                    <h2 class="font-semibold text-sm">Llenado de Datos e Información de Facturación</h2>
+            <div class="ios-screen p-4 space-y-3 border-emerald-500/40">
+                <div class="flex justify-between items-center text-xs text-blue-400 pb-2 border-b border-gray-800">
+                    <span class="text-gray-500">Cancelar</span>
+                    <span class="font-bold text-white text-sm">Agregar pago</span>
+                    <span class="font-bold text-blue-400">Listo</span>
                 </div>
 
-                <div class="bg-amber-500/10 border border-amber-500/30 p-3 rounded-xl text-xs text-amber-300 flex items-center gap-2">
-                    <i class="fa-solid fa-circle-info text-sm shrink-0"></i>
-                    <span>Selecciona la Forma de Pago <strong>"Ninguna"</strong> y copia cada campo para pegarlo en la App Store:</span>
-                </div>
-
-                <!-- Botones de Copia Rápida -->
-                <div class="space-y-2 text-xs font-mono">
-                    <div class="p-2.5 bg-gray-900 border border-gray-800 rounded-xl flex justify-between items-center">
-                        <div>
-                            <span class="text-gray-500 text-[10px] block font-sans uppercase">Calle</span>
-                            <span class="text-white font-semibold">8342 NW 66TH STREET</span>
-                        </div>
-                        <button onclick="copyData('8342 NW 66TH STREET', this)" class="px-3 py-1 bg-blue-600/20 hover:bg-blue-600/40 text-blue-400 font-sans text-xs rounded-lg transition flex items-center gap-1">
-                            <i class="fa-regular fa-copy"></i> Copiar
-                        </button>
-                    </div>
-
-                    <div class="p-2.5 bg-gray-900 border border-gray-800 rounded-xl flex justify-between items-center">
-                        <div>
-                            <span class="text-gray-500 text-[10px] block font-sans uppercase">Ciudad</span>
-                            <span class="text-white font-semibold">Miami</span>
-                        </div>
-                        <button onclick="copyData('Miami', this)" class="px-3 py-1 bg-blue-600/20 hover:bg-blue-600/40 text-blue-400 font-sans text-xs rounded-lg transition flex items-center gap-1">
-                            <i class="fa-regular fa-copy"></i> Copiar
-                        </button>
-                    </div>
-
-                    <div class="p-2.5 bg-gray-900 border border-gray-800 rounded-xl flex justify-between items-center">
-                        <div>
-                            <span class="text-gray-500 text-[10px] block font-sans uppercase">Estado</span>
-                            <span class="text-white font-semibold">Florida</span>
-                        </div>
-                        <button onclick="copyData('Florida', this)" class="px-3 py-1 bg-blue-600/20 hover:bg-blue-600/40 text-blue-400 font-sans text-xs rounded-lg transition flex items-center gap-1">
-                            <i class="fa-regular fa-copy"></i> Copiar
-                        </button>
-                    </div>
-
-                    <div class="p-2.5 bg-gray-900 border border-gray-800 rounded-xl flex justify-between items-center">
-                        <div>
-                            <span class="text-gray-500 text-[10px] block font-sans uppercase">Código Postal</span>
-                            <span class="text-white font-semibold">33266</span>
-                        </div>
-                        <button onclick="copyData('33266', this)" class="px-3 py-1 bg-blue-600/20 hover:bg-blue-600/40 text-blue-400 font-sans text-xs rounded-lg transition flex items-center gap-1">
-                            <i class="fa-regular fa-copy"></i> Copiar
-                        </button>
+                <div class="text-[10px] text-gray-400 uppercase tracking-wider px-2 pt-1">Forma de pago</div>
+                
+                <div class="ios-card overflow-hidden text-xs">
+                    <div class="p-3 text-gray-500 ios-divider">Tarjeta de crédito o débito</div>
+                    <div class="p-3 text-gray-500 ios-divider">PayPal</div>
+                    <div class="p-3 text-gray-500 ios-divider">Teléfono móvil</div>
+                    <div class="p-3 flex justify-between items-center bg-blue-600/10 font-bold text-emerald-400">
+                        <span>Ninguno</span>
+                        <i class="fa-solid fa-circle-check text-emerald-400"></i>
                     </div>
                 </div>
 
-                <!-- Copiar Todo en Un solo Toque -->
-                <button onclick="copyAllData(this)" class="w-full py-3 bg-purple-600/20 hover:bg-purple-600/30 border border-purple-500/40 text-purple-300 font-semibold text-xs rounded-xl transition flex items-center justify-center gap-2">
-                    <i class="fa-solid fa-copy"></i>
-                    Copiar Todos los Datos Juntos al Portapapeles
-                </button>
+                <div class="text-[10px] text-gray-400 uppercase tracking-wider px-2 pt-1">Dirección de facturación lista</div>
+                <div class="ios-card p-3 text-xs space-y-2 text-gray-200 font-mono">
+                    <div class="flex justify-between items-center">
+                        <span class="text-gray-400 font-sans">Calle</span>
+                        <span class="text-emerald-400 font-semibold">8342 NW 66TH STREET</span>
+                    </div>
+                    <div class="flex justify-between items-center">
+                        <span class="text-gray-400 font-sans">Ciudad</span>
+                        <span class="text-emerald-400 font-semibold">Miami</span>
+                    </div>
+                    <div class="flex justify-between items-center">
+                        <span class="text-gray-400 font-sans">Estado</span>
+                        <span class="text-emerald-400 font-semibold">Florida</span>
+                    </div>
+                    <div class="flex justify-between items-center">
+                        <span class="text-gray-400 font-sans">Código Postal</span>
+                        <span class="text-emerald-400 font-semibold">33266</span>
+                    </div>
+                </div>
             </div>
 
-            <button onclick="goToStep(2)" class="w-full py-3 bg-gray-800 hover:bg-gray-700 text-gray-300 font-semibold rounded-2xl transition text-xs">
+            <!-- Botón para copiar todos los datos -->
+            <button onclick="copyAllData()" class="w-full py-3.5 bg-blue-600 hover:bg-blue-500 text-white font-semibold rounded-2xl transition flex items-center justify-center gap-2 text-sm shadow-lg shadow-blue-600/20">
+                <i class="fa-regular fa-copy"></i>
+                <span>Copiar Todos los Datos para Pegar</span>
+            </button>
+
+            <button onclick="changeStep(2)" class="w-full py-2.5 bg-gray-800 hover:bg-gray-700 text-gray-300 font-medium rounded-xl transition text-xs">
                 Volver al Paso 2
             </button>
         </div>
@@ -155,63 +150,39 @@
     <!-- Toast Notification -->
     <div id="toast" class="fixed bottom-6 left-1/2 -translate-x-1/2 bg-emerald-600 text-white px-4 py-2.5 rounded-2xl text-xs font-semibold shadow-2xl opacity-0 transition-opacity duration-300 pointer-events-none flex items-center gap-2">
         <i class="fa-solid fa-check-circle"></i>
-        <span id="toast-text">Dato copiado con éxito</span>
+        <span>¡Datos copiados! Pégalos en la App Store</span>
     </div>
 
     <script>
-        function goToStep(stepNumber) {
-            // Ocultar todos los pasos
+        function changeStep(step) {
             document.getElementById('step-1').classList.add('hidden');
             document.getElementById('step-2').classList.add('hidden');
             document.getElementById('step-3').classList.add('hidden');
 
-            // Resetear estados del badge
             for (let i = 1; i <= 3; i++) {
-                const badge = document.getElementById('badge-' + i);
-                badge.className = "py-2 rounded-xl bg-gray-800 text-gray-400 transition-all";
+                const tab = document.getElementById('tab-' + i);
+                tab.className = "py-2 rounded-xl bg-gray-800 text-gray-400 transition-all";
             }
 
-            // Activar paso actual
-            document.getElementById('step-' + stepNumber).classList.remove('hidden');
-            const activeBadge = document.getElementById('badge-' + stepNumber);
-            activeBadge.className = "py-2 rounded-xl bg-blue-600 text-white transition-all shadow-md";
+            document.getElementById('step-' + step).classList.remove('hidden');
+            const activeTab = document.getElementById('tab-' + step);
+            activeTab.className = "py-2 rounded-xl bg-blue-600 text-white transition-all shadow-md";
         }
 
-        function copyData(text, btn) {
+        function copyAllData() {
+            const dataText = `Calle: 8342 NW 66TH STREET\nCiudad: Miami\nEstado: Florida\nCódigo Postal: 33266\nForma de pago: Ninguno`;
             const el = document.createElement('textarea');
-            el.value = text;
+            el.value = dataText;
             document.body.appendChild(el);
             el.select();
             document.execCommand('copy');
             document.body.removeChild(el);
 
-            showToast('Copiado: ' + text);
-        }
-
-        function copyAllData(btn) {
-            const allText = `Calle: 8342 NW 66TH STREET\nCiudad: Miami\nEstado: Florida\nZIP: 33266\nForma de pago: Ninguna`;
-            const el = document.createElement('textarea');
-            el.value = allText;
-            document.body.appendChild(el);
-            el.select();
-            document.execCommand('copy');
-            document.body.removeChild(el);
-
-            showToast('Todos los datos copiados en bloque');
-        }
-
-        function showToast(message) {
             const toast = document.getElementById('toast');
-            const toastText = document.getElementById('toast-text');
-            toastText.textContent = message;
             toast.classList.remove('opacity-0');
             setTimeout(() => {
                 toast.classList.add('opacity-0');
-            }, 2000);
-        }
-
-        function markAppStoreOpened() {
-            showToast('Abriendo App Store...');
+            }, 2500);
         }
     </script>
 </body>
